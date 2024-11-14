@@ -35,7 +35,8 @@ jobs:
 
       # Run lint
       - name: Run Lint
-        run: eslint client/src --ext js,jsx --report-unused-disable-directives --max-warnings 0
+        run: npx eslint client/src --ext js,jsx --report-unused-disable-directives --max-warnings 0
+
 
       # Run build
       - name: Run Build
