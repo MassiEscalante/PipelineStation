@@ -1,12 +1,11 @@
 # Name of workflow
 name: Lint and Test workflow
 
-# Trigger workflow on all pull requests
+# Trigger workflow on all pull requests to the develop branch
 on:
   pull_request:
     branches:
       - develop
-      - staging
 
 # Jobs to carry out
 jobs:
@@ -25,18 +24,22 @@ jobs:
         with:
           node-version: 21.x
 
-      # Install dependencies
-      - name: 🧰 Install Deps
+      # Install dependencies in the client folder
+      - name: Install Client Dependencies
         run: npm install
+        working-directory: ./client
         
       # Run lint
       - name: Run Lint
         run: npm run lint
+        working-directory: ./client
 
       # Run build
       - name: Run Build
         run: npm run build
+        working-directory: ./client
 
-      # Run tests
-      - name: Run Tests
-        run: npm run test
+      # Run Cypress component tests
+      - name: Run Cypress Component Tests
+        run: npm run cypress:run   # <-- uses the "cypress:run" script we confirmed
+        working-directory: ./client
