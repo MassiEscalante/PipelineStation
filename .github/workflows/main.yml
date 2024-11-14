@@ -28,11 +28,16 @@ jobs:
       - name: Install Client Dependencies
         run: npm install
         working-directory: ./client
-        
+
+      # Ensure correct permissions for ESLint
+      - name: Set permissions for node_modules
+        run: chmod +x ./client/node_modules/.bin/eslint
+
       # Run lint
       - name: Run Lint
-        run: npm run lint
         working-directory: ./client
+        run: npx eslint client/src --report-unused-disable-directives --max-warnings 0
+
 
       # Run build
       - name: Run Build
