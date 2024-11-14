@@ -1,7 +1,7 @@
 # Name of workflow
 name: Lint and Test workflow
 
-# Trigger workflow on all pull requests to the develop branch *change for pr*
+# Trigger workflow on all pull requests to the develop branch
 on:
   pull_request:
     branches:
@@ -28,7 +28,11 @@ jobs:
       - name: Install Client Dependencies
         run: npm install
         working-directory: ./client
-        
+
+      # Ensure correct permissions for ESLint
+      - name: Set permissions for node_modules
+        run: chmod +x ./client/node_modules/.bin/eslint
+
       # Run lint
       - name: Run Lint
         run: npm run lint
