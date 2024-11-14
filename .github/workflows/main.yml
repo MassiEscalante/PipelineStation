@@ -1,7 +1,7 @@
 # Name of workflow
 name: Lint and Test workflow
 
-# Trigger workflow on all pull requests to the develop branch
+# Trigger workflow on all pull requests to the develop branch *change for pr*
 on:
   pull_request:
     branches:
