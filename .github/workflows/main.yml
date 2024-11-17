@@ -37,6 +37,10 @@ jobs:
       - name: Set permissions for Vite
         run: chmod +x ./client/node_modules/.bin/vite  
 
+      # Set permissions for Cypress
+      - name: Set permissions for Cypress
+        run: chmod +x ./client/node_modules/.bin/cypress  
+
       # Run lint
       - name: Run Lint
         run: npm run lint
@@ -50,5 +54,5 @@ jobs:
 
       # Run Cypress component tests
       - name: Run Cypress Component Tests
-        run: npm run cypress:run   # <-- uses the "cypress:run" script we confirmed
+        run: npm run cypress:run   
         working-directory: ./client
