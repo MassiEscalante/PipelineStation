@@ -33,6 +33,10 @@ jobs:
       - name: Set permissions for node_modules
         run: chmod +x ./client/node_modules/.bin/eslint
 
+      # Set permissions for Vite
+      - name: Set permissions for Vite
+        run: chmod +x ./client/node_modules/.bin/vite  
+
       # Run lint
       - name: Run Lint
         run: npm run lint
