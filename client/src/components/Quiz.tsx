@@ -1,9 +1,13 @@
-import { useState, } from 'react';
+import { useState } from 'react';
 import type { Question } from '../models/Question.js';
 import { getQuestions } from '../services/questionApi.js';
 
-const Quiz = () => {
-  const [questions, setQuestions] = useState<Question[]>([]);
+interface QuizProps {
+  questions?: Question[]; // Allow injecting questions via props (useful for tests)
+}
+
+const Quiz = ({ questions: propQuestions = [] }: QuizProps) => {
+  const [questions, setQuestions] = useState<Question[]>(propQuestions); // Use injected questions or default to an empty array
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
@@ -11,13 +15,11 @@ const Quiz = () => {
 
   const getRandomQuestions = async () => {
     try {
-      const questions = await getQuestions();
-
-      if (!questions) {
-        throw new Error('something went wrong!');
+      const fetchedQuestions = await getQuestions();
+      if (!fetchedQuestions) {
+        throw new Error('Something went wrong!');
       }
-
-      setQuestions(questions);
+      setQuestions(fetchedQuestions);
     } catch (err) {
       console.error(err);
     }
@@ -37,7 +39,10 @@ const Quiz = () => {
   };
 
   const handleStartQuiz = async () => {
-    await getRandomQuestions();
+    if (propQuestions.length === 0) {
+      // Fetch questions only if none are passed via props
+      await getRandomQuestions();
+    }
     setQuizStarted(true);
     setQuizCompleted(false);
     setScore(0);
@@ -81,15 +86,17 @@ const Quiz = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div className='card p-4'>
+    <div className="card p-4">
       <h2>{currentQuestion.question}</h2>
       <div className="mt-3">
-      {currentQuestion.answers.map((answer, index) => (
-        <div key={index} className="d-flex align-items-center mb-2">
-          <button className="btn btn-primary" onClick={() => handleAnswerClick(answer.isCorrect)}>{index + 1}</button>
-          <div className="alert alert-secondary mb-0 ms-2 flex-grow-1">{answer.text}</div>
-        </div>
-      ))}
+        {currentQuestion.answers.map((answer, index) => (
+          <div key={index} className="d-flex align-items-center mb-2">
+            <button className="btn btn-primary" onClick={() => handleAnswerClick(answer.isCorrect)}>
+              {index + 1}
+            </button>
+            <div className="alert alert-secondary mb-0 ms-2 flex-grow-1">{answer.text}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
