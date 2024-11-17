@@ -35,7 +35,12 @@ jobs:
 
       # Set permissions for Vite
       - name: Set permissions for Vite
-        run: chmod +x ./client/node_modules/.bin/vite  
+        run: chmod +x ./client/node_modules/.bin/vite 
+        
+      # Install Cypress binary
+      - name: Install Cypress Binary
+        run: npx cypress install
+        working-directory: ./client
 
       # Set permissions for Cypress
       - name: Set permissions for Cypress
