@@ -83,11 +83,11 @@ const Quiz = ({ questions: propQuestions = [] }: QuizProps) => {
     );
   }
 
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = questions[currentQuestionIndex] || { answers: [] };
 
   return (
     <div className="card p-4">
-      <h2>{currentQuestion.question}</h2>
+      <h2>{currentQuestion.question || "No Question Available"}</h2>
       <div className="mt-3">
         {currentQuestion.answers.map((answer, index) => (
           <div key={index} className="d-flex align-items-center mb-2">
@@ -103,3 +103,4 @@ const Quiz = ({ questions: propQuestions = [] }: QuizProps) => {
 };
 
 export default Quiz;
+

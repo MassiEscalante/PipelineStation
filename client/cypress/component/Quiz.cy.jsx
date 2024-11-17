@@ -5,14 +5,22 @@ describe("Quiz Component", () => {
     {
       id: 1,
       question: "What does HTML stand for?",
-      options: ["Hyper Trainer Marking Language", "Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language"],
-      answer: "Hyper Text Markup Language",
+      answers: [
+        { text: "Hyper Trainer Marking Language", isCorrect: false },
+        { text: "Hyper Text Markup Language", isCorrect: true },
+        { text: "Hyperlinks and Text Markup Language", isCorrect: false },
+        { text: "Home Tool Markup Language", isCorrect: false },
+      ],
     },
     {
       id: 2,
       question: "Which programming language is primarily used for web development?",
-      options: ["Python", "JavaScript", "C++", "Java"],
-      answer: "JavaScript",
+      answers: [
+        { text: "Python", isCorrect: false },
+        { text: "JavaScript", isCorrect: true },
+        { text: "C++", isCorrect: false },
+        { text: "Java", isCorrect: false },
+      ],
     },
   ];
 
