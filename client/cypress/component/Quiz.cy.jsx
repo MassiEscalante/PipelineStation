@@ -5,22 +5,14 @@ describe("Quiz Component", () => {
     {
       id: 1,
       question: "What does HTML stand for?",
-      answers: [
-        { text: "Hyper Trainer Marking Language", isCorrect: false },
-        { text: "Hyper Text Markup Language", isCorrect: true },
-        { text: "Hyperlinks and Text Markup Language", isCorrect: false },
-        { text: "Home Tool Markup Language", isCorrect: false },
-      ],
+      options: ["Hyper Trainer Marking Language", "Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language"],
+      answer: "Hyper Text Markup Language",
     },
     {
       id: 2,
       question: "Which programming language is primarily used for web development?",
-      answers: [
-        { text: "Python", isCorrect: false },
-        { text: "JavaScript", isCorrect: true },
-        { text: "C++", isCorrect: false },
-        { text: "Java", isCorrect: false },
-      ],
+      options: ["Python", "JavaScript", "C++", "Java"],
+      answer: "JavaScript",
     },
   ];
 
@@ -48,22 +40,26 @@ describe("Quiz Component", () => {
     cy.mount(<Quiz questions={mockQuestions} />); // Pass mock questions as props
     cy.get("button").contains("Start Quiz").click();
 
-    // Answer questions
-    cy.get("button").contains("1").click();
+    // Answer all questions
+    mockQuestions.forEach(() => {
+      cy.get("button").contains("1").click();
+    });
 
     // Verify the quiz completion
-    cy.get(".alert-success").should("be.visible").and("contain", "Your score");
+    cy.get(".alert-success", { timeout: 5000 }).should("be.visible").and("contain", "Your score");
   });
 
   it("should restart the quiz after completion", () => {
     cy.mount(<Quiz questions={mockQuestions} />); // Pass mock questions as props
     cy.get("button").contains("Start Quiz").click();
 
-    // Answer questions
-    cy.get("button").contains("1").click();
+    // Answer all questions
+    mockQuestions.forEach(() => {
+      cy.get("button").contains("1").click();
+    });
 
     // Restart the quiz
-    cy.get("button").contains("Take New Quiz").click();
+    cy.get("button").contains("Take New Quiz", { timeout: 5000 }).click();
 
     // Verify the quiz is restarted
     cy.get(".card").should("be.visible");
