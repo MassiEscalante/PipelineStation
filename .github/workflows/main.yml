@@ -35,8 +35,8 @@ jobs:
 
       # Run lint
       - name: Run Lint
+        run: npm run lint
         working-directory: ./client
-        run: npx eslint client/src --report-unused-disable-directives --max-warnings 0
 
 
       # Run build
