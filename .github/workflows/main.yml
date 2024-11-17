@@ -29,20 +29,24 @@ jobs:
         run: npm install
         working-directory: ./client
 
-      # Ensure correct permissions for ESLint
-      - name: Set permissions for node_modules
+      # Set permissions for ESLint
+      - name: Set permissions for ESLint
         run: chmod +x ./client/node_modules/.bin/eslint
 
       # Set permissions for Vite
       - name: Set permissions for Vite
         run: chmod +x ./client/node_modules/.bin/vite 
         
+      # Set permissions for Cypress before install
+      - name: Set permissions for Cypress Binary
+        run: chmod +x ./client/node_modules/.bin/cypress
+
       # Install Cypress binary
       - name: Install Cypress Binary
         run: npx cypress install
         working-directory: ./client
 
-      # Set permissions for Cypress
+      # Set permissions for Cypress after install
       - name: Set permissions for Cypress
         run: chmod +x ./client/node_modules/.bin/cypress  
 
@@ -50,7 +54,6 @@ jobs:
       - name: Run Lint
         run: npm run lint
         working-directory: ./client
-
 
       # Run build
       - name: Run Build
