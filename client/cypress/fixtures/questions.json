@@ -1,22 +1,52 @@
 [
-    {
-      "id": 1,
-      "question": "What does HTML stand for?",
-      "answers": [
-        { "text": "Hyper Trainer Marking Language", "isCorrect": false },
-        { "text": "Hyper Text Markup Language", "isCorrect": true },
-        { "text": "Hyperlinks and Text Markup Language", "isCorrect": false },
-        { "text": "Home Tool Markup Language", "isCorrect": false }
-      ]
-    },
-    {
-      "id": 2,
-      "question": "Which programming language is primarily used for web development?",
-      "answers": [
-        { "text": "Python", "isCorrect": false },
-        { "text": "JavaScript", "isCorrect": true },
-        { "text": "C++", "isCorrect": false },
-        { "text": "Java", "isCorrect": false }
-      ]
-    }
-  ]
+  {
+    "id": 1,
+    "question": "What does HTML stand for?",
+    "answers": [
+      { "text": "Hyper Trainer Marking Language", "isCorrect": false },
+      { "text": "Hyper Text Markup Language", "isCorrect": true },
+      { "text": "Hyperlinks and Text Markup Language", "isCorrect": false },
+      { "text": "Home Tool Markup Language", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Which programming language is primarily used for web development?",
+    "answers": [
+      { "text": "Python", "isCorrect": false },
+      { "text": "JavaScript", "isCorrect": true },
+      { "text": "C++", "isCorrect": false },
+      { "text": "Java", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "What is the output of `console.log(typeof null)` in JavaScript?",
+    "answers": [
+      { "text": "object", "isCorrect": true },
+      { "text": "null", "isCorrect": false },
+      { "text": "undefined", "isCorrect": false },
+      { "text": "number", "isCorrect": false }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Which of the following is NOT a programming paradigm?",
+    "answers": [
+      { "text": "Object-Oriented", "isCorrect": false },
+      { "text": "Functional", "isCorrect": false },
+      { "text": "Procedural", "isCorrect": false },
+      { "text": "Symmetrical", "isCorrect": true }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Which of these HTTP methods is used to update a resource?",
+    "answers": [
+      { "text": "GET", "isCorrect": false },
+      { "text": "POST", "isCorrect": false },
+      { "text": "PUT", "isCorrect": true },
+      { "text": "DELETE", "isCorrect": false }
+    ]
+  }
+]
