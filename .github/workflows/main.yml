@@ -62,5 +62,5 @@ jobs:
 
       # Run Cypress component tests
       - name: Run Cypress Component Tests
-        run: npm run cypress:run   
+        run: npx cypress run --component   
         working-directory: ./client
