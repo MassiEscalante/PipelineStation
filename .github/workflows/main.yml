@@ -26,7 +26,7 @@ jobs:
 
       # Install dependencies in the client folder
       - name: Install Client Dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
         working-directory: ./client
 
       # Set permissions for ESLint
