@@ -1,6 +1,7 @@
 import Quiz from "../../src/components/Quiz";
 
 describe("Quiz Component", () => {
+  
   const mockQuestions = [
     {
       _id: "1",
@@ -46,5 +47,7 @@ describe("Quiz Component", () => {
     cy.get("button").contains("2").click(); // Correct answer for question 2
     cy.get("button").contains("Take New Quiz").click();
     cy.get("button").contains("Start Quiz").should("be.visible");
+
   });
+
 });
