@@ -6,7 +6,7 @@ export default defineConfig({
       framework: "react",
       bundler: "vite",
     },
-    specPattern: "cypress/component/**/*.cy.{js,jsx,ts,tsx}",
-    supportFile: "cypress/support/commands.js", // Correctly points to commands.js
+    specPattern: "cypress/component/**/*.cy.{js,jsx,ts,tsx}", // For component tests
+    supportFile: "cypress/support/commands.js", // Direct reference to commands.js
   },
 });
