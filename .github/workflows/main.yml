@@ -28,7 +28,28 @@ jobs:
       - name: Install Client Dependencies
         run: npm install
         working-directory: ./client
+
+      # Set permissions for ESLint
+      - name: Set permissions for ESLint
+        run: chmod +x ./client/node_modules/.bin/eslint
+
+      # Set permissions for Vite
+      - name: Set permissions for Vite
+        run: chmod +x ./client/node_modules/.bin/vite 
         
+      # Set permissions for Cypress before install
+      - name: Set permissions for Cypress Binary
+        run: chmod +x ./client/node_modules/.bin/cypress
+
+      # Install Cypress binary
+      - name: Install Cypress Binary
+        run: npx cypress install
+        working-directory: ./client
+
+      # Set permissions for Cypress after install
+      - name: Set permissions for Cypress
+        run: chmod +x ./client/node_modules/.bin/cypress  
+
       # Run lint
       - name: Run Lint
         run: npm run lint
@@ -41,5 +62,5 @@ jobs:
 
       # Run Cypress component tests
       - name: Run Cypress Component Tests
-        run: npm run cypress:run   # <-- uses the "cypress:run" script we confirmed
+        run: npx cypress run --component   
         working-directory: ./client

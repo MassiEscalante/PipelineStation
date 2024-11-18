@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "1",
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Trainer Marking Language",
+      "Hyper Text Markup Language",
+      "Hyperlinks and Text Markup Language",
+      "Home Tool Markup Language"
+    ],
+    "answer": "Hyper Text Markup Language"
+  },
+  {
+    "_id": "2",
+    "question": "Which programming language is primarily used for web development?",
+    "options": ["Python", "JavaScript", "C++", "Java"],
+    "answer": "JavaScript"
+  },
+  {
+    "_id": "3",
+    "question": "What is the output of `console.log(typeof null)` in JavaScript?",
+    "options": ["object", "null", "undefined", "number"],
+    "answer": "object"
+  },
+  {
+    "_id": "4",
+    "question": "Which of the following is NOT a programming paradigm?",
+    "options": ["Object-Oriented", "Functional", "Procedural", "Symmetrical"],
+    "answer": "Symmetrical"
+  },
+  {
+    "_id": "5",
+    "question": "Which of these HTTP methods is used to update a resource?",
+    "options": ["GET", "POST", "PUT", "DELETE"],
+    "answer": "PUT"
+  }
+]
