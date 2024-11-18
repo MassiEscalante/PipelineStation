@@ -1,5 +1,5 @@
 # Name of workflow
-name: Lint and Test workflow
+name: Lint and Test Workflow
 
 # Trigger workflow on all pull requests to the develop branch
 on:
